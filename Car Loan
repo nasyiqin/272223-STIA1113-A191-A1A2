@@ -1,0 +1,58 @@
+
+import java.util.Scanner;
+
+public class LoanCar {
+
+    public static void main(String[] args){
+
+        Scanner input = new Scanner(System.in);
+
+        float loanPeriod;
+        int interestRate;
+        int downPayment;
+        int carPrice;
+
+        do{
+            System.out.print("Enter Car Price (RM) : ");
+        carPrice = input.nextInt();
+        } while(carPrice < 0);
+
+        do{
+            System.out.print("Enter Down Payment (RM) : ");
+            downPayment = input.nextInt();
+        } while(downPayment < 0);
+
+        do{
+            System.out.print("Enter Loan Period (Years) : ");
+            loanPeriod = input.nextFloat();
+        } while(loanPeriod <5 || loanPeriod > 9 );
+
+        do {
+            System.out.print("Enter Interest Rate (%) : ");
+            interestRate = input.nextInt();
+        } while(interestRate < 3 || interestRate > 7);
+
+        float totalInterest = ((carPrice - downPayment) * (float)(interestRate / 100) * loanPeriod);
+        float monthlyRepayment = (carPrice - downPayment + totalInterest) / (loanPeriod * 12);
+
+        System.out.printf("Monthly Repayment: %.2f" , monthlyRepayment);
+
+        int years;
+        float balance, principal;
+
+        System.out.printf("\n\n%-6s%19s%19s", "Years", "Principal", "Balance");
+
+        for(int i=0;i<loanPeriod;i++){
+
+            years=i+1;
+            principal = monthlyRepayment * 12 * years;
+            balance = (monthlyRepayment * loanPeriod * 12) - principal;
+
+            System.out.printf("\n%-4d%,21.2f%,19.2f", years, principal , balance);
+
+        }
+
+
+    }
+
+}
