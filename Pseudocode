@@ -5,12 +5,12 @@ Start
 	Display “Enter Down Payment (RM): ”
 	Input down payment
 	Loop if input down payment is less than 0
-  Display “Enter Loan Period (Years): ”
-  Input loan period
-  Loop if input loan period is 0 or negative and in the range between 5 to 9 years
+  	Display “Enter Loan Period (Years): ”
+  	Input loan period
+  	Loop if input loan period is 0 or negative and in the range between 5 to 9 years
 	Display “Enter Interest Rate (%): ”
 	Input interest rate 
-  Loop if input interest rate is 0 or negative and in range between 3% to 7%
+  	Loop if input interest rate is 0 or negative and in range between 3% to 7%
 	Calculate monthly repayment = (car price – down payment) * (interest rate / 100) * loan period
 	Display monthly repayment
 	Loop when I not more than loan period
